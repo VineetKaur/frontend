@@ -1,4 +1,5 @@
 function _login(){
+	event.preventDefault();
 	var email =  document.forms["login-form"]["username"].value; //   'abc@xyz.com';	//
 	var pwd = document.forms["login-form"]["password"].value;  //  'abc'; 	//
 	console.log('email: ', email, ' pwd: ', pwd);
@@ -38,13 +39,14 @@ function _login(){
 			localStorage.setItem("token", resData.token);
 			console.log(resData);
 		});
-		// localStorage.setItem("token", res);
+		console.log('token: ', localStorage.getItem("token"));
+		window.location.replace('/index.html');
 		console.log("res: ", res);
 	}).catch(function(err){
 		// localStorage.setItem("token", err);
 		console.log("err: ", err);
 	});
-	window.location.replace('/index.html');
+	
 };
 
 function _register(){}
